@@ -1,0 +1,28 @@
+#!/bin/bash
+# My first script
+# name="hello_world"
+# 2016/6/7
+
+hello () {
+  # lenght of termianl
+  COLUMNS=$(tput cols)
+  # user
+  mind=$(whoami)
+  # split quotes to later concatinate myself into the quote. It is necessary, despite being unnecessary.
+  pinky_one="Gee, "
+  pinky_two=", what do you want to do tonight?"
+  brain_one="The same thing we do every night, "
+  brain_two=" - try to take over the world!"
+  me="winston"
+
+  # starting out with a new blank line. blank lines make i look nicer. There is probably a way to do with only one print
+  printf "\n"
+  # finding the center of the terminal
+  printf "%*s\n" $(((${#pinky_one}+$mind+${#pinky_two}+$COLUMNS)/2)) "$pinky_one$mind$pinky_two"
+  printf "\n"
+  printf "%*s\n" $(((${#brain_one}+${#pinky_two}+$me+$COLUMNS)/2)) "$brain_one$me$brain_two"
+  printf "\n"
+}
+
+# calling the function
+hello
